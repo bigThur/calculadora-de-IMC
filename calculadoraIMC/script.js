@@ -4,14 +4,14 @@ function calcularIMC() {
     let pesoInput = document.getElementById("peso");
   
     // 2. Verifique se os campos foram encontrados e se os valores são válidos
-    if (!alturaInput || !pesoInput || isNaN(parseFloat(alturaInput.value)) || isNaN(parseFloat(pesoInput.value))) {
+    if (!alturaInput || !pesoInput || isNaN(parseFloat(alturaInput.value.replace(",","."))) || isNaN(parseFloat(pesoInput.value.replace(",",".")))) {
       document.getElementById("resultado").innerHTML = "Por favor, preencha os campos com números válidos.";
       return;
     }
   
     // 3. Converta os valores para números de ponto flutuante (float)
-    let altura = parseFloat(alturaInput.value);
-    let peso = parseFloat(pesoInput.value);
+    let altura = parseFloat(alturaInput.value.replace(",","."));
+    let peso = parseFloat(pesoInput.value.replace(",","."));
   
     // 4. Calcule o IMC
     let imc = peso / (altura * altura);
